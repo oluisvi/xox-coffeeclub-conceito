@@ -59,7 +59,7 @@ const searchClear=document.querySelector('#search-clear');
 if(searchClear) searchClear.addEventListener('click',()=>{search.value='';render();search.focus()});
 
 let lastFocus=null;
-grid.addEventListener('click',e=>{
+document.querySelector('.catalog-section').addEventListener('click',e=>{
   const btn=e.target.closest('[data-product]');
   if(!btn)return;
   const p=menu.find(i=>i.id===Number(btn.dataset.product));
@@ -102,6 +102,8 @@ const concepts={
 function setConcept(key,changeHash=true){
   if(!concepts[key])return;const c=concepts[key];document.body.dataset.concept=key;
   for(const [id,v] of [['hero-eyebrow',c.eyebrow],['hero-title',c.title],['hero-intro',c.intro],['photo-label',c.label],['experience-title',c.exp],['menu-title',c.menu],['party-title',c.party]])document.getElementById(id).innerHTML=v;
+  const spotlight={v1:['01 / OS FAVORITOS','Worth a<br><em>closer look.</em>','Três boas desculpas para ficar mais um pouco.'],v2:['SUGESTÕES DA CASA','Para ficar<br><em>mais um pouco.</em>','Escolhas para um fim de semana sem pressa.'],v3:['HOT LIST / XOX','EAT.<br><em>REPEAT.</em>','Pega o seu favorito. O resto é história.']};
+  [['spotlight-eyebrow',spotlight[key][0]],['spotlight-title',spotlight[key][1]],['spotlight-copy',spotlight[key][2]]].forEach(([id,value])=>document.getElementById(id).innerHTML=value);
   document.querySelectorAll('[data-go]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.go===key)));
   if(changeHash)history.replaceState(null,'',location.pathname+location.search+'#'+key);
 }
