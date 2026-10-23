@@ -1,32 +1,26 @@
-# XOX Coffeeclub — conceito digital
+# XOX Coffeeclub — catálogo integrado
 
-Protótipo estático mobile-first com três direções de experiência numa só página. Abra `index.html` para ver e use o seletor fixo no topo para trocar entre os conceitos.
+Versão estática do site conceitual com **três direções visuais** (Daylight Radio, Sunday Social, Afterparty) e cardápio completo integrado à própria página.
 
-## Direções
+## Instalação
 
-- **Daylight Radio** — cobalt, composição editorial assimétrica, café e som no centro.
-- **Sunday Social** — leitura acolhedora de revista de fim de semana, com foco em brunch e visita.
-- **Coffee Afterparty** — pôster de alto contraste, tipografia display e energia da Coffeeparty durante o dia.
+Coloque `index.html`, `app.js`, `menu-data.js`, `mobile-first.css`, `menu.css` e a pasta `assets/menu/` na raiz do projeto publicado no GitHub Pages. **Preserve outros arquivos do repositório**. Acesse o site normalmente. A versão foi reconstruída a partir do deploy público, pois o repositório de origem não estava acessível para leitura neste ambiente. O ZIP NÃO representa um clone integral do GitHub.
 
-## O que funciona
+## Cardápio
 
-- Troca por botões acessíveis, teclado e hash (`#v1`, `#v2`, `#v3`), mantendo as três opções na mesma página.
-- Atalhos interativos para menu, agenda e pedido pelo iFood.
-- Links para Instagram, cardápio PDF, WhatsApp oficial divulgado pela bio, iFood, central da bio e localização.
-- Layout responsivo, estados de foco, landmarks semânticos e suporte a `prefers-reduced-motion`.
+- 33 produtos e 2 adicionais extraídos do PDF fornecido; preços em BRL.
+- 21 fotografias reais do próprio PDF, tratadas com ajuste moderado de contraste, cor, nitidez e reamostragem para 620 × 750 px. Reamostragem não recupera detalhes inexistentes no original.
+- Produtos que não têm foto no PDF aparecem com arte tipográfica, claramente distinta de fotografias.
+- Filtros por Signatures, Classics, Brunch, Doces, Drinks e Bebidas; busca tolerante a acentos por nome, categoria e ingredientes; detalhes em modal.
+- Todos os botões de cardápio internos levam para `#cardapio`, sem direcionar ao Google Drive.
+- Fotos conceituais do ambiente continuam apontando para o deploy público existente. Se for importante rodar 100% offline, copie esses arquivos da pasta `assets` da versão original e altere os três URLs absolutos no HTML.
+- Não há checkout falso. O botão de pedido abre o iFood existente.
 
-## Conteúdo e validação
+## Conferências antes de publicar
 
-A XOX informou que abre aos sábados e domingos e que as Coffeeparties seguem a agenda mensal publicada no Instagram. O texto omite horário fixo porque as fontes públicas consultadas divergem. O cardápio abre o PDF atual divulgado no hub da bio; não reproduz itens ou preços que não puderam ser extraídos com segurança.
+1. Comparar os preços com o cardápio atualizado da loja.
+2. Conferir o corte das 21 imagens (o PDF já continha as fotos pequenas).
+3. Testar `index.html` pelo GitHub Pages ou servidor local (`python -m http.server 8000`).
+4. Ao transferir para o repositório, fazer commit em uma branch e conferir os três designs antes de sobrescrever a página publicada.
 
-As fotografias em `assets/` são imagens conceituais geradas para visualizar uma direção de arte, não registros reais do espaço ou de eventos da XOX. Confirmar com a marca antes de substituir por fotos oficiais ou publicar como site final. Endereço e destinos dos links devem ser revalidados na aprovação do cliente.
-
-## Fontes públicas consultadas
-
-- Instagram: https://www.instagram.com/xoxcoffeeclub/
-- Hub oficial da bio: https://xox.keepo.bio/
-- Cardápio ligado no hub: https://drive.google.com/file/d/1HCCGktYftEY3dqmyj49eFKGU0VGF2S8l/view?usp=drive_link
-- iFood: https://www.ifood.com.br/delivery/porto-alegre-rs/xox-coffeeclub-floresta/fa80816a-323a-4dc0-9d6d-e260d02aa68b?utm_medium=share
-- Jornal do Comércio (contexto da marca/interior): https://www.jornaldocomercio.com/cultura/2025/05/1195941-nova-cafeteria-no-4-distrito-aposta-em-tendencia-de-festas-diurnas.html
-
-Protótipo de proposta — validar conteúdo, operação, imagens, horário e canais com a XOX antes de considerar lançamento final.
+**Nota:** conteúdo do cardápio fiel ao PDF fornecido; pequenas correções de digitação de ingredientes e pontuação foram aplicadas. Projeto conceitual, não oficial.
