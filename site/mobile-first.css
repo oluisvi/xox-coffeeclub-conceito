@@ -1,0 +1,139 @@
+/* Shared layout starts at 320px; wider compositions are enhancements. */
+html { scroll-padding-top: 112px; }
+body { overflow-wrap: break-word; }
+.design { overflow: clip; }
+.wrap { width: min(100% - 32px, 1240px); }
+.design :is(.hero-copy,.hero-visual,.menu-copy,.party-copy,.visit-card,.experience-options,.info-tile) { min-width: 0; }
+.concept-bar { padding: 8px 12px; padding-top: max(8px,env(safe-area-inset-top)); flex-direction: column; align-items: stretch; gap: 7px; }
+.concept-id { font-size: 9px; letter-spacing: .07em; white-space: normal; }
+.switcher { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; gap: 5px; }
+.switcher-label,.switcher button .key { display: none; }
+.switcher button { min-height: 48px; padding: 6px; font-size: 11px; line-height: 1.25; }
+.design .site-header { padding-block: 16px; gap: 12px; }
+.brand-lockup { flex-shrink: 0; }
+.brand-symbol { width: 32px; height: 32px; }
+.design .brand-name { font-size: 14px; }
+.site-nav { gap: 0; }
+.site-nav a:not(.btn) { display: none; }
+.site-nav .btn { min-height: 48px; padding-inline: 12px; font-size: 12px; }
+.btn { min-height: 48px; font-size: 14px; padding: 12px 18px; text-align: center; }
+.text-link { min-height: 48px; font-size: 14px; }
+.hero-actions,.visit-actions { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.hero-actions .btn,.visit-actions .btn { width: 100%; }
+.v1 .hero,.v2 .hero,.v3 .hero { grid-template-columns: minmax(0,1fr); min-height: 0; gap: 28px; padding: 22px 0 48px; }
+.v1 .hero-copy,.v2 .hero-copy,.v3 .hero-copy { padding: 0; }
+.v1 .hero h1 { font-size: clamp(48px,13.8vw,72px); line-height: .94; letter-spacing: -.075em; margin: 16px 0; }
+.v2 .hero h1 { font-size: clamp(48px,14vw,76px); line-height: .96; margin: 16px 0; }
+.v3 .hero h1 { font-size: clamp(72px,22vw,112px); line-height: .84; margin: 16px 0; letter-spacing: -.025em; }
+.design .hero-copy>p { font-size: 16px; line-height: 1.6; }
+.hero-note { margin-top: 20px; font-size: 13px; }
+.v1 .hero-visual,.v2 .hero-visual,.v3 .hero-visual { min-height: 0; padding: 0 0 25px; }
+.v1 .hero-photo,.v2 .hero-photo,.v3 .hero-photo { position: relative; inset: auto; width: 100%; height: auto; min-height: 0; aspect-ratio: 4/3; object-fit: cover; object-position: 64% center; }
+.v1 .hero-photo { border-radius: 4px 56px 4px 4px; }
+.v2 .hero-photo { border-radius: 44% 44% 3px 3px; }
+.v3 .hero-photo { clip-path: polygon(7% 0,100% 0,100% 100%,0 91%); }
+.design .hero-stamp { width: 104px; height: 104px; border-width: 5px; bottom: 0; right: 8px; left: auto; }
+.design .hero-stamp b { font-size: 17px; }
+.design .hero-stamp span { font-size: 8px; }
+.design .side-caption { display: none; }
+.section-pad { padding-block: 48px; }
+.section-head { align-items: flex-start; flex-direction: column; gap: 16px; }
+.section-head p { font-size: 16px; }
+.v1 .weekend,.v2 .weekend,.v3 .weekend { grid-template-columns: minmax(0,1fr); padding: 24px; gap: 24px; }
+.v2 .weekend { border-radius: 48px 4px 4px 4px; }
+.weekend-info { grid-template-columns: minmax(0,1fr); gap: 12px; }
+.design .info-tile { min-height: 0; padding: 16px; }
+.design .info-tile p,.design .weekend p { font-size: 15px; line-height: 1.6; }
+.v1 .weekend h2 { font-size: clamp(32px,9vw,48px); }
+.v2 .weekend h2 { font-size: clamp(32px,9vw,48px); }
+.v3 .weekend h2 { font-size: clamp(42px,12vw,64px); }
+.v1 .menu-feature,.v2 .menu-feature,.v3 .menu-feature { grid-template-columns: minmax(0,1fr); gap: 28px; }
+.design .menu-photo { order: 0; aspect-ratio: 1.15/1; width: 100%; height: auto; }
+.design .menu-copy { order: 1; }
+.v1 .menu-copy h2,.v2 .menu-copy h2 { font-size: clamp(35px,10vw,54px); line-height: 1; }
+.v3 .menu-copy h2 { font-size: clamp(48px,14vw,76px); line-height: .92; }
+.menu-copy>p { font-size: 16px; }
+.menu-points { grid-template-columns: minmax(0,1fr); gap: 8px; }
+.menu-point b { font-size: 15px; }
+.menu-point span { font-size: 13px; }
+.experience-inner { grid-template-columns: minmax(0,1fr); gap: 24px; padding-block: 40px; }
+.experience-options { grid-template-columns: minmax(0,1fr); gap: 10px; }
+.experience-option { min-height: 96px; padding: 18px; gap: 8px; }
+.experience-option b { font-size: 16px; }
+.experience-option span { font-size: 14px; }
+.experience-result { flex-direction: column; align-items: stretch; gap: 8px; padding: 16px; }
+.experience-result p { font-size: 15px; }
+.experience-result a { display: flex; align-items: center; min-height: 48px; font-size: 14px; }
+.v1 .experience h2,.v2 .experience h2 { font-size: clamp(34px,10vw,56px); }
+.v3 .experience h2 { font-size: clamp(48px,14vw,76px); }
+.v1 .party-band,.v2 .party-band,.v3 .party-band { grid-template-columns: minmax(0,1fr); }
+.design .party-band img { order: 0; width: 100%; height: auto; min-height: 0; max-height: none; aspect-ratio: 4/3; object-fit: cover; }
+.design .party-copy { order: 1; padding: 32px 24px 40px; }
+.v1 .party-copy h2,.v2 .party-copy h2 { font-size: clamp(36px,10vw,58px); line-height: .98; }
+.v3 .party-copy h2 { font-size: clamp(48px,14vw,80px); line-height: .88; }
+.party-copy p { font-size: 16px; }
+.visit-block { grid-template-columns: minmax(0,1fr); }
+.visit-card { padding: 24px; }
+.design .visit-card p { font-size: 16px; }
+.v1 .visit-card h3,.v2 .visit-card h3 { font-size: clamp(30px,8.5vw,44px); }
+.v3 .visit-card h3 { font-size: clamp(40px,11vw,58px); }
+.v3 .section-head h2 { font-size: clamp(48px,13vw,76px); }
+.v3 .poster-strip { transform: none; }
+.footer-row { flex-direction: column; align-items: flex-start; }
+.footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; width: 100%; }
+.footer-links a { display: flex; align-items: center; min-height: 48px; font-size: 14px; }
+.footer-meta { font-size: 13px; }
+.concept-note { font-size: 12px; line-height: 1.6; }
+.design .footer { padding-bottom: max(32px,env(safe-area-inset-bottom)); }
+@media(min-width:480px) {
+  .hero-actions,.visit-actions,.menu-points,.weekend-info { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .switcher button { font-size: 12px; }
+  .design .brand-name { font-size: 17px; }
+}
+@media(min-width:768px) {
+  html { scroll-padding-top: 84px; }
+  .wrap { width: min(100% - 64px,1240px); }
+  .concept-bar { flex-direction: row; align-items: center; padding: 10px 24px; }
+  .concept-id { font-size: 10px; }
+  .switcher { width: auto; }
+  .switcher button { padding-inline: 12px; }
+  .design .hero { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 32px; padding-block: 44px 64px; }
+  .v1 .hero h1 { font-size: clamp(56px,7vw,104px); }
+  .v2 .hero h1 { font-size: clamp(56px,7vw,100px); }
+  .v3 .hero h1 { font-size: clamp(84px,10vw,142px); }
+  .design .hero-photo { aspect-ratio: 4/5; }
+  .hero-actions { grid-template-columns: 1fr; }
+  .section-pad { padding-block: 72px; }
+  .v1 .weekend,.v2 .weekend,.v3 .weekend { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); padding: 36px; gap: 32px; }
+  .v1 .menu-feature,.v2 .menu-feature,.v3 .menu-feature { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 36px; }
+  .design .menu-photo { aspect-ratio: 4/5; }
+  .v2 .menu-copy { order: 0; }
+  .v2 .menu-photo { order: 1; }
+  .experience-options { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .experience-option { min-height: 160px; }
+  .experience-result { flex-direction: row; align-items: center; }
+  .v1 .party-band,.v2 .party-band,.v3 .party-band { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .design .party-band img { height: 100%; aspect-ratio: auto; min-height: 380px; }
+  .design .party-copy { padding: 40px; }
+  .v2 .party-copy { order: 0; }
+  .v2 .party-band img { order: 1; }
+  .visit-block { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .visit-actions { grid-template-columns: 1fr; }
+  .footer-row { flex-direction: row; align-items: center; }
+  .footer-links { display: flex; width: auto; gap: 16px; }
+}
+@media(min-width:1024px) {
+  .site-nav { gap: 24px; }
+  .site-nav a:not(.btn) { display: inline-flex; align-items: center; min-height: 48px; }
+  .switcher button .key { display: inline; }
+  .concept-bar { padding-inline: 40px; }
+  .v1 .hero { grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr); }
+  .v2 .hero { grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); }
+  .hero-actions,.visit-actions { display: flex; flex-wrap: wrap; }
+  .hero-actions .btn,.visit-actions .btn { width: auto; }
+  .section-pad { padding-block: 96px; }
+  .experience-inner { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); padding-block: 64px; }
+  .design .visit-card { padding: 40px; }
+  .design .hero-stamp { width: 130px; height: 130px; }
+  .design .hero-stamp b { font-size: 21px; }
+}
