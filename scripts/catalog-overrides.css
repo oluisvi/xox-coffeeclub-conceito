@@ -1,0 +1,15 @@
+/* Integração dos estilos premium com o HTML original dos três designs */
+.design .catalog-section{isolation:isolate}
+.design .catalog-section.section-pad{padding-block:clamp(65px,8vw,115px)}
+.design .catalog-section .wrap{width:min(1240px,100% - 36px)}
+.design .catalog-section .eyebrow{display:inline-flex;margin-bottom:12px}
+.design.v2 .catalog-section .catalog-heading h2{font-family:var(--serif);font-weight:400;letter-spacing:-.05em}
+.design.v2 .catalog-section .catalog-heading h2 em{color:#974536}
+.design.v3 .catalog-section .catalog-heading h2{font-family:var(--poster);letter-spacing:0}
+.design.v3 .catalog-section .catalog-heading h2 em{font-family:var(--poster);font-style:normal}
+#product-dialog[data-concept="v2"]{background:#fff9f1;border-radius:34px}
+#product-dialog[data-concept="v2"] .dialog-copy h2{font-family:var(--serif);font-weight:400}
+#product-dialog[data-concept="v3"]{border-radius:0;border:3px solid #111;box-shadow:12px 12px 0 #e8ff48}
+#product-dialog[data-concept="v3"] .dialog-copy h2{font-family:var(--poster);font-weight:400;letter-spacing:.01em}
+.design .catalog-section .product-card,.design .catalog-section .spotlight-item{cursor:pointer}
+@media(max-width:720px){.design .catalog-section.section-pad{padding-block:64px}.design .catalog-section .wrap{width:min(100% - 30px,560px)}.design .catalog-section .catalog-heading h2{font-size:clamp(38px,10vw,66px)}}

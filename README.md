@@ -1,38 +1,52 @@
-# XOX Coffeeclub — catálogo v3
+# XOX Coffeeclub — correção definitiva do catálogo no GitHub Pages
 
-Esta é uma **versão reconstruída do deploy público** com o cardápio no próprio site e **três direções visuais próprias**: Daylight Radio (editorial/azul), Sunday Social (quente/arcos) e Afterparty (pôster/acid). A versão anterior do GitHub Pages continuava apontando para o Drive porque os arquivos novos ainda não estavam publicados.
+Este pacote foi preparado **após inspeção do repositório público real** `oluisvi/xox-coffeeclub-conceito`.
 
-## PUBLICAÇÃO — IMPORTANTE
+## A causa do problema
 
-1. Extraia este ZIP. **Substitua o `index.html` da raiz** do seu repositório pelo arquivo fornecido. Se não substituir esse arquivo, os antigos botões continuarão abrindo o Drive.
-2. Coloque junto, na raiz, `app.js`, `menu-data.js`, `mobile-first.css`, `menu.css`, `menu-v3.css` e a pasta `assets/menu/` (com os 21 arquivos .webp).
-3. Faça commit/push na branch que publica GitHub Pages. Confira em Settings → Pages se o site usa essa mesma branch e a pasta `/ (root)`.
-4. Aguarde o deploy do GitHub Pages terminar e atualize o navegador com Ctrl+Shift+R.
-5. Clique em “Cardápio” na navegação, no hero e no rodapé. Todos agora direcionam à âncora **`#cardapio`**, dentro da própria página.
+O workflow `.github/workflows/deploy.yml` publica **`site/`** como artefato do GitHub Pages. As versões anteriores alteravam `index.html`, CSS, JS e `assets/menu/` **na raiz**, por isso não apareciam no site online. O `site/index.html` continuava apontando para o Drive.
 
-**Observação:** o repositório `oluisvi/xox-coffeeclub-conceito` não estava acessível para leitura no ambiente e a versão foi reconstruída da vitrine pública, por isso este ZIP **não é clone fiel** dos arquivos privados do repositório. Se você quiser preservar literalmente o HTML atual das três páginas originais, é necessário fornecer uma cópia do código privado. Não misture trechos de `index.html` antigos com novos: substitua-o por completo caso queira usar esta versão reconstruída.
+## Como aplicar (apenas uma vez)
 
-## Visual dos três protótipos
+1. Extraia o ZIP na **raiz do repositório** `xox-coffeeclub-conceito`.
+2. Preserve o caminho das pastas. **Substitua `.github/workflows/deploy.yml`** pelo arquivo do ZIP e adicione a pasta `scripts/`.
+3. Mantenha os arquivos originais do repositório, em especial `site/index.html`, `index.html`, `menu.css`, `menu-v3.css`, `menu-data.js` e `assets/menu/` (já estão no repo público).
+4. Faça commit e push para `main`.
+5. Em **GitHub → Actions → Deploy to GitHub Pages**, confirme que a execução ficou verde. O workflow, antes de publicar `site/`, roda `python3 scripts/integrate_catalog.py`.
+6. Abra `https://oluisvi.github.io/xox-coffeeclub-conceito/` e atualize com `Ctrl + Shift + R`. Confira o cardápio nos três designs.
 
-- **01 / Daylight Radio:** cards clean e retangulares, gradientes azuis, fotos de aspecto editorial e destaques escalonados.
-- **02 / Sunday Social:** paleta quente, fotografias e cards em arco, serifas elegantes, ambientação de brunch.
-- **03 / Afterparty:** cards quadrados com bordas pesadas, amarelo ácido, tipografia de pôster, sombras gráficas e composições assimétricas.
+> **Não** altere as configurações do Pages para `/(root)`. O workflow continuará publicando `site/`, agora com o catálogo integrado de forma correta.
 
-A troca de protótipo mantém o mesmo catálogo, filtros e detalhes, apenas alterando apresentação e textos de apoio.
+## O que o build faz
 
-## O que foi implementado
+- Preserva o HTML original das três páginas: **Daylight Radio, Sunday Social e Afterparty**.
+- Acrescenta uma seção de catálogo em **cada protótipo**, aproveitando os estilos premium existentes na raiz (`menu.css`, `menu-v3.css`).
+- Converte os estilos `body[data-concept=v2/v3]` para `.design.v2/.design.v3`, compatíveis com o mecanismo original de alternância entre páginas.
+- Troca os links da página ao PDF no Drive por âncoras internas `#catalogo-v1`, `#catalogo-v2`, `#catalogo-v3`, inclusive o seletor interativo de experiências.
+- Copia `menu-data.js` e as **21 fotos WebP** de `assets/menu/` para a pasta publicada `site/assets/menu/`.
+- Ativa o catálogo de **33 produtos**, os **2 adicionais**, busca por ingredientes, 7 filtros com contadores, destaques, cards e modal de detalhes.
+- Mantém links externos legítimos (Instagram, iFood, Maps e WhatsApp).
 
-- 33 produtos reais, 2 adicionais, preços do PDF fornecido.
-- 21 fotos de produtos extraídas e otimizadas do PDF, sem gerar fotos fictícias.
-- Busca por nome e ingrediente, 7 filtros com contadores, botão de limpar e mensagens vazias.
-- Destaques clicáveis com modal de produto, navegação por teclado (incluindo `/` para busca).
-- Todos os links de cardápio internos apontam para `#cardapio`, e não para o Drive. iFood e WhatsApp são links externos legítimos.
-- Design responsivo e suporte a `prefers-reduced-motion`.
+## Rodar o build localmente (opcional)
 
-### Fotos
+Na raiz do repositório:
 
-O tratamento inclui reamostragem, contraste e nitidez. Os arquivos do PDF original têm resolução limitada e o tratamento não cria detalhes autênticos que não estejam na fonte.
+```bash
+python3 scripts/integrate_catalog.py
+cd site
+python3 -m http.server 8000
+```
 
-### Checagem local
+Abra http://localhost:8000. O script é idempotente: ao executá-lo outra vez, reconhece o catálogo já injetado e apenas refaz a verificação/cópia de arquivos.
 
-Execute `python -m http.server 8000` na pasta e abra `http://localhost:8000`. A versão reconstruída é HTML/CSS/JS estáticos, sem build nem dependências npm.
+## Conteúdo do ZIP
+
+```text
+.github/workflows/deploy.yml        # publica site/ após o build
+scripts/integrate_catalog.py       # patch idempotente do site original
+scripts/catalog.js                 # catálogo com busca, filtro e modal
+scripts/catalog-overrides.css      # integração estética dos 3 protótipos
+README.md                          # instruções
+```
+
+**Observação:** o código Python modifica `site/index.html` somente na cópia do checkout usada pela Action, não no commit original do GitHub. Se quiser que a versão publicada apareça também como HTML gerado dentro do repositório, rode o comando local e faça commit do resultado após revisar.
